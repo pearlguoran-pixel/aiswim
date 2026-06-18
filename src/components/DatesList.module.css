@@ -1,0 +1,100 @@
+.heading {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy);
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 3px solid var(--gold);
+}
+
+.list {
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 0.65rem 0;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.dateBlock {
+  min-width: 42px;
+  background: var(--navy);
+  border-radius: var(--radius);
+  padding: 4px 5px;
+  text-align: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.month {
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.day {
+  display: block;
+  font-size: 19px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.info {
+  flex: 1;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+
+.detail {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.typeBadge {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+  align-self: flex-start;
+  margin-top: 2px;
+}
+
+.type_payment {
+  background: var(--badge-payment-bg);
+  color: var(--badge-payment-text);
+}
+
+.type_ceremony {
+  background: var(--badge-ceremony-bg);
+  color: var(--badge-ceremony-text);
+}
+
+.type_party {
+  background: var(--badge-party-bg);
+  color: var(--badge-party-text);
+}
+
+.type_admin {
+  background: var(--badge-admin-bg);
+  color: var(--badge-admin-text);
+}

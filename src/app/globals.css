@@ -1,0 +1,46 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --navy:        #0a2240;
+  --navy-mid:    #1a3a60;
+  --navy-light:  rgba(10, 34, 64, 0.08);
+  --gold:        #F5C020;
+  --gold-dark:   #e6b31a;
+  --gold-light:  rgba(245, 192, 32, 0.15);
+  --text:        #0a2240;
+  --text-muted:  rgba(10, 34, 64, 0.55);
+  --border:      rgba(10, 34, 64, 0.1);
+  --bg:          #ffffff;
+  --radius:      7px;
+  --radius-lg:   10px;
+
+  /* badge colours */
+  --badge-payment-bg:   #FAEEDA;
+  --badge-payment-text: #633806;
+  --badge-ceremony-bg:  #EEEDFE;
+  --badge-ceremony-text:#3C3489;
+  --badge-party-bg:     #FBEAF0;
+  --badge-party-text:   #72243E;
+  --badge-admin-bg:     #EAF3DE;
+  --badge-admin-text:   #27500A;
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}

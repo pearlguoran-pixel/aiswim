@@ -1,0 +1,71 @@
+.bar {
+  background: var(--navy);
+  color: white;
+  padding: 0.75rem 2rem;
+}
+
+.inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
+}
+
+.event {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+  min-width: 180px;
+}
+
+.event small {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 1px;
+}
+
+.units {
+  display: flex;
+  gap: 6px;
+}
+
+.unit {
+  background: rgba(245, 192, 32, 0.15);
+  border-radius: 6px;
+  padding: 5px 10px;
+  text-align: center;
+  min-width: 48px;
+}
+
+.unitNum {
+  display: block;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--gold);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.unitLabel {
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 2px;
+}
