@@ -6,6 +6,7 @@ This guide walks through creating the tables in your Neon database now that it's
 
 Copy these into your existing project, preserving the folder structure:
 
+```
 src/db/schema.ts
 src/db/index.ts
 src/db/seed.ts
