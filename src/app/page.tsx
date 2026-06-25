@@ -3,10 +3,16 @@ import Hero from "@/components/Hero";
 import CountdownBar from "@/components/CountdownBar";
 import MeetsList from "@/components/MeetsList";
 import DatesList from "@/components/DatesList";
-import { meets, dates } from "@/lib/data";
+import { getHomePageData } from "@/lib/queries";
 import styles from "./page.module.css";
 
-export default function HomePage() {
+// Always fetch fresh data — this page depends on "today's date" for
+// past/next/upcoming status, so it shouldn't be statically cached.
+export const dynamic = "force-dynamic";
+
+export default async function HomePage() {
+  const { meets, dates } = await getHomePageData();
+
   return (
     <>
       <Navbar activePath="/" />
