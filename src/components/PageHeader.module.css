@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap");
+
+.header {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 56px 24px 32px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: "Oswald", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #f5c020;
+  background: #0a2240;
+  padding: 6px 14px;
+  border-radius: 2px;
+}
+
+.title {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: 0.01em;
+  color: #0a2240;
+  margin: 18px 0 10px;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: #5b6472;
+  max-width: 620px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Lane-rope motif — reused under the header on every new page */
+.rule {
+  margin-top: 28px;
+  height: 4px;
+  width: 64px;
+  background: repeating-linear-gradient(
+    90deg,
+    #0a2240 0 18px,
+    transparent 18px 26px
+  );
+}

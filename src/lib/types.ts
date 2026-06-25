@@ -21,3 +21,51 @@ export interface DateEvent {
   detail: string;
   type: DateType;
 }
+
+// ──────────────────────────────────────────────
+// Records / Roster / Coaches
+// ──────────────────────────────────────────────
+
+export type Section = "Elementary" | "Middle School" | "High School";
+export type Stroke =
+  | "Freestyle"
+  | "Backstroke"
+  | "Breaststroke"
+  | "Butterfly"
+  | "IM"
+  | "Distance";
+export type Gender = "Male" | "Female";
+export type Course = "SCM" | "LCM" | "SCY";
+
+export interface RecordEntry {
+  id: string;
+  eventName: string;
+  stroke: Stroke;
+  gender: Gender;
+  ageGroup: string;
+  course: Course;
+  formattedTime: string;
+  swimmerName: string;
+  dateSet: string;
+  isAlumniRecord?: boolean;
+}
+
+export interface SwimmerProfile {
+  id: string;
+  firstName: string;
+  lastName: string;
+  gender: Gender;
+  gradYear: number;
+  section: Section;
+  specialtyStroke: Stroke;
+  isAlumni?: boolean;
+}
+
+export interface CoachProfile {
+  id: string;
+  firstName: string;
+  lastName: string;
+  title: string;
+  qualifications: string;
+  bio: string;
+}
