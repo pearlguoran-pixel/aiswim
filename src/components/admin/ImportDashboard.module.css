@@ -1,0 +1,180 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+@media (max-width: 760px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel {
+  background: #ffffff;
+  border: 1px solid #e2e6ec;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.fieldLabel {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0a2240;
+  margin-bottom: 8px;
+}
+
+.select {
+  width: 100%;
+  border: 1px solid #d6dce5;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.dropzone {
+  border: 2px dashed #c4cad4;
+  border-radius: 10px;
+  padding: 28px 16px;
+  text-align: center;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.dropzoneActive {
+  border-color: #f5c020;
+  background: rgba(245, 192, 32, 0.08);
+}
+
+.dropzoneTitle {
+  font-weight: 600;
+  color: #0a2240;
+  margin: 0 0 4px;
+}
+
+.dropzoneHint {
+  font-size: 12px;
+  color: #8a93a3;
+  margin: 0 0 10px;
+}
+
+.browseButton {
+  display: inline-block;
+  background: #0a2240;
+  color: #f5c020;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.previewBlock {
+  margin-top: 20px;
+}
+
+.previewLabel {
+  font-size: 12px;
+  color: #6b7280;
+  margin: 0 0 8px;
+}
+
+.previewNote {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.tableScroll {
+  overflow-x: auto;
+  border: 1px solid #e2e6ec;
+  border-radius: 8px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.table th {
+  background: #0a2240;
+  color: #f5c020;
+  text-align: left;
+  padding: 8px 10px;
+}
+
+.table td {
+  padding: 8px 10px;
+  border-top: 1px solid #eef0f3;
+  color: #2c3645;
+}
+
+.error {
+  color: #c0392b;
+  font-size: 13px;
+  margin: 12px 0 0;
+}
+
+.submit {
+  margin-top: 20px;
+  width: 100%;
+  background: #0a2240;
+  color: #f5c020;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.submit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.emptyState {
+  font-size: 13px;
+  color: #8a93a3;
+}
+
+.historyList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.historyItem {
+  border: 1px solid #eef0f3;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.historyFile {
+  margin: 0;
+  font-weight: 600;
+  color: #0a2240;
+  font-size: 14px;
+}
+
+.historyMeta {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #6b7280;
+  text-transform: capitalize;
+}
+
+.historyWarning {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: #b07c12;
+}
