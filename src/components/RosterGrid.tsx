@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { SwimmerProfile, Section, Stroke } from "@/lib/types";
+import type { SwimmerProfile, Section, Gender } from "@/lib/types";
 import styles from "./RosterGrid.module.css";
 
 interface RosterGridProps {
@@ -15,31 +15,23 @@ const SECTION_OPTIONS: Array<Section | "All"> = [
   "High School",
 ];
 
-const STROKE_OPTIONS: Array<Stroke | "All"> = [
-  "All",
-  "Freestyle",
-  "Backstroke",
-  "Breaststroke",
-  "Butterfly",
-  "IM",
-  "Distance",
-];
+const GENDER_OPTIONS: Array<Gender | "All"> = ["All", "Male", "Female"];
 
 export default function RosterGrid({ swimmers }: RosterGridProps) {
   const [search, setSearch] = useState("");
   const [section, setSection] = useState<Section | "All">("All");
-  const [stroke, setStroke] = useState<Stroke | "All">("All");
+  const [gender, setGender] = useState<Gender | "All">("All");
 
   const filtered = useMemo(() => {
     const term = search.trim().toLowerCase();
     return swimmers
       .filter((s) => section === "All" || s.section === section)
-      .filter((s) => stroke === "All" || s.specialtyStroke === stroke)
+      .filter((s) => gender === "All" || s.gender === gender)
       .filter((s) =>
         term === "" ? true : `${s.firstName} ${s.lastName}`.toLowerCase().includes(term)
       )
       .sort((a, b) => a.lastName.localeCompare(b.lastName));
-  }, [swimmers, section, stroke, search]);
+  }, [swimmers, section, gender, search]);
 
   return (
     <div className={styles.wrap}>
@@ -68,20 +60,21 @@ export default function RosterGrid({ swimmers }: RosterGridProps) {
           </div>
         </div>
 
-        <label className={styles.filterGroup}>
-          <span className={styles.filterLabel}>Specialty Stroke</span>
-          <select
-            className={styles.select}
-            value={stroke}
-            onChange={(e) => setStroke(e.target.value as Stroke | "All")}
-          >
-            {STROKE_OPTIONS.map((s) => (
-              <option key={s} value={s}>
-                {s}
-              </option>
+        <div className={styles.filterGroup}>
+          <span className={styles.filterLabel}>Gender</span>
+          <div className={styles.chips}>
+            {GENDER_OPTIONS.map((opt) => (
+              <button
+                key={opt}
+                type="button"
+                className={`${styles.chip} ${gender === opt ? styles.chipActive : ""}`}
+                onClick={() => setGender(opt)}
+              >
+                {opt}
+              </button>
             ))}
-          </select>
-        </label>
+          </div>
+        </div>
       </div>
 
       <p className={styles.count}>
@@ -98,12 +91,12 @@ export default function RosterGrid({ swimmers }: RosterGridProps) {
             <span className={styles.section}>{swimmer.section}</span>
             <dl className={styles.meta}>
               <div>
-                <dt>Class of</dt>
-                <dd>{swimmer.gradYear}</dd>
+                <dt>Age</dt>
+                <dd>{swimmer.age}</dd>
               </div>
               <div>
-                <dt>Specialty</dt>
-                <dd>{swimmer.specialtyStroke}</dd>
+                <dt>Class of</dt>
+                <dd>{swimmer.gradYear}</dd>
               </div>
               <div>
                 <dt>Gender</dt>

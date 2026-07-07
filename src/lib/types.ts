@@ -55,9 +55,9 @@ export interface SwimmerProfile {
   firstName: string;
   lastName: string;
   gender: Gender;
+  age: number;
   gradYear: number;
   section: Section;
-  specialtyStroke: Stroke;
   isAlumni?: boolean;
 }
 
