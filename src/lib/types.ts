@@ -37,9 +37,34 @@ export type Stroke =
 export type Gender = "Male" | "Female";
 export type Course = "SCM" | "LCM" | "SCY";
 
+export type Event =
+  | "50 Freestyle"
+  | "100 Freestyle"
+  | "200 Freestyle"
+  | "400 Freestyle"
+  | "800 Freestyle"
+  | "1500 Freestyle"
+  | "50 Butterfly"
+  | "100 Butterfly"
+  | "200 Butterfly"
+  | "50 Backstroke"
+  | "100 Backstroke"
+  | "200 Backstroke"
+  | "50 Breaststroke"
+  | "100 Breaststroke"
+  | "200 Breaststroke"
+  | "100 Individual Medley"
+  | "200 Individual Medley"
+  | "400 Individual Medley"
+  | "4x50 Freestyle Relay"
+  | "4x100 Freestyle Relay"
+  | "4x200 Freestyle Relay"
+  | "4x50 Medley Relay"
+  | "4x100 Medley Relay";
+
 export interface RecordEntry {
   id: string;
-  eventName: string;
+  eventName: Event;
   stroke: Stroke;
   gender: Gender;
   ageGroup: string;

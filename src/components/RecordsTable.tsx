@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { RecordEntry, Gender, Stroke } from "@/lib/types";
+import type { RecordEntry, Gender, Event } from "@/lib/types";
 import styles from "./RecordsTable.module.css";
 
 interface RecordsTableProps {
@@ -9,19 +9,37 @@ interface RecordsTableProps {
 }
 
 const GENDER_OPTIONS: Array<Gender | "All"> = ["All", "Male", "Female"];
-const STROKE_OPTIONS: Array<Stroke | "All"> = [
+
+const EVENT_OPTIONS: Array<Event | "All"> = [
   "All",
-  "Freestyle",
-  "Backstroke",
-  "Breaststroke",
-  "Butterfly",
-  "IM",
-  "Distance",
+  "50 Freestyle",
+  "100 Freestyle",
+  "200 Freestyle",
+  "400 Freestyle",
+  "800 Freestyle",
+  "1500 Freestyle",
+  "50 Butterfly",
+  "100 Butterfly",
+  "200 Butterfly",
+  "50 Backstroke",
+  "100 Backstroke",
+  "200 Backstroke",
+  "50 Breaststroke",
+  "100 Breaststroke",
+  "200 Breaststroke",
+  "100 Individual Medley",
+  "200 Individual Medley",
+  "400 Individual Medley",
+  "4x50 Freestyle Relay",
+  "4x100 Freestyle Relay",
+  "4x200 Freestyle Relay",
+  "4x50 Medley Relay",
+  "4x100 Medley Relay",
 ];
 
 export default function RecordsTable({ records }: RecordsTableProps) {
   const [gender, setGender] = useState<Gender | "All">("All");
-  const [stroke, setStroke] = useState<Stroke | "All">("All");
+  const [event, setEvent] = useState<Event | "All">("All");
   const [ageGroup, setAgeGroup] = useState<string>("All");
 
   const ageGroupOptions = useMemo(() => {
@@ -32,10 +50,10 @@ export default function RecordsTable({ records }: RecordsTableProps) {
   const filtered = useMemo(() => {
     return records
       .filter((r) => gender === "All" || r.gender === gender)
-      .filter((r) => stroke === "All" || r.stroke === stroke)
+      .filter((r) => event === "All" || r.eventName === event)
       .filter((r) => ageGroup === "All" || r.ageGroup === ageGroup)
       .sort((a, b) => a.eventName.localeCompare(b.eventName));
-  }, [records, gender, stroke, ageGroup]);
+  }, [records, gender, event, ageGroup]);
 
   return (
     <div className={styles.wrap}>
@@ -57,15 +75,15 @@ export default function RecordsTable({ records }: RecordsTableProps) {
         </div>
 
         <label className={styles.filterGroup}>
-          <span className={styles.filterLabel}>Stroke</span>
+          <span className={styles.filterLabel}>Event</span>
           <select
             className={styles.select}
-            value={stroke}
-            onChange={(e) => setStroke(e.target.value as Stroke | "All")}
+            value={event}
+            onChange={(e) => setEvent(e.target.value as Event | "All")}
           >
-            {STROKE_OPTIONS.map((s) => (
-              <option key={s} value={s}>
-                {s}
+            {EVENT_OPTIONS.map((ev) => (
+              <option key={ev} value={ev}>
+                {ev}
               </option>
             ))}
           </select>

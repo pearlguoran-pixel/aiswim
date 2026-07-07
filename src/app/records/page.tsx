@@ -10,7 +10,7 @@ export default function RecordsPage() {
       <PageHeader
         eyebrow="School Records"
         title="All-Time Top Times"
-        subtitle="Filter by gender, stroke, or age group to see where the bar is set."
+        subtitle="Filter by gender, event, or age group to see where the bar is set."
       />
       <RecordsTable records={mockRecords} />
     </>
