@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { RecordEntry, Gender, Event } from "@/lib/types";
+import type { RecordEntry, Gender, SwimEvent } from "@/lib/types";
 import styles from "./RecordsTable.module.css";
 
 interface RecordsTableProps {
@@ -10,7 +10,7 @@ interface RecordsTableProps {
 
 const GENDER_OPTIONS: Array<Gender | "All"> = ["All", "Male", "Female"];
 
-const EVENT_OPTIONS: Array<Event | "All"> = [
+const EVENT_OPTIONS: Array<SwimEvent | "All"> = [
   "All",
   "50 Freestyle",
   "100 Freestyle",
@@ -39,7 +39,7 @@ const EVENT_OPTIONS: Array<Event | "All"> = [
 
 export default function RecordsTable({ records }: RecordsTableProps) {
   const [gender, setGender] = useState<Gender | "All">("All");
-  const [event, setEvent] = useState<Event | "All">("All");
+  const [event, setEvent] = useState<SwimEvent | "All">("All");
   const [ageGroup, setAgeGroup] = useState<string>("All");
 
   const ageGroupOptions = useMemo(() => {
@@ -79,7 +79,7 @@ export default function RecordsTable({ records }: RecordsTableProps) {
           <select
             className={styles.select}
             value={event}
-            onChange={(e) => setEvent(e.target.value as Event | "All")}
+            onChange={(e) => setEvent(e.target.value as SwimEvent | "All")}
           >
             {EVENT_OPTIONS.map((ev) => (
               <option key={ev} value={ev}>

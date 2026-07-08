@@ -37,7 +37,7 @@ export type Stroke =
 export type Gender = "Male" | "Female";
 export type Course = "SCM" | "LCM" | "SCY";
 
-export type Event =
+export type SwimEvent =
   | "50 Freestyle"
   | "100 Freestyle"
   | "200 Freestyle"
@@ -64,7 +64,7 @@ export type Event =
 
 export interface RecordEntry {
   id: string;
-  eventName: Event;
+  eventName: SwimEvent;
   stroke: Stroke;
   gender: Gender;
   ageGroup: string;
