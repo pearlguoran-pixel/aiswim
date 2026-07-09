@@ -1,0 +1,91 @@
+/* src/components/SwimmerInfoPanel.module.css */
+
+.panel {
+  background: #0a2240;
+  color: #f4f6f8;
+  border-radius: 12px;
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  height: fit-content;
+  position: sticky;
+  top: 1.5rem;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #F5C020;
+  color: #0a2240;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.name {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.6rem 0;
+  line-height: 1.15;
+}
+
+.sectionBadge {
+  display: inline-block;
+  background: rgba(28, 124, 156, 0.35);
+  border: 1px solid #1c7c9c;
+  color: #bfe6f2;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  margin-bottom: 1.75rem;
+}
+
+.infoList {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.65rem 0;
+  border-top: 1px solid rgba(245, 192, 32, 0.2);
+}
+
+.infoRow:first-child {
+  border-top: none;
+}
+
+.infoRow dt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #8fa3bd;
+}
+
+.infoRow dd {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #f4f6f8;
+}
+
+@media (max-width: 720px) {
+  .panel {
+    position: static;
+  }
+}

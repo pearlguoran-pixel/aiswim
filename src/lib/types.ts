@@ -37,34 +37,9 @@ export type Stroke =
 export type Gender = "Male" | "Female";
 export type Course = "SCM" | "LCM" | "SCY";
 
-export type SwimEvent =
-  | "50 Freestyle"
-  | "100 Freestyle"
-  | "200 Freestyle"
-  | "400 Freestyle"
-  | "800 Freestyle"
-  | "1500 Freestyle"
-  | "50 Butterfly"
-  | "100 Butterfly"
-  | "200 Butterfly"
-  | "50 Backstroke"
-  | "100 Backstroke"
-  | "200 Backstroke"
-  | "50 Breaststroke"
-  | "100 Breaststroke"
-  | "200 Breaststroke"
-  | "100 Individual Medley"
-  | "200 Individual Medley"
-  | "400 Individual Medley"
-  | "4x50 Freestyle Relay"
-  | "4x100 Freestyle Relay"
-  | "4x200 Freestyle Relay"
-  | "4x50 Medley Relay"
-  | "4x100 Medley Relay";
-
 export interface RecordEntry {
   id: string;
-  eventName: SwimEvent;
+  eventName: string;
   stroke: Stroke;
   gender: Gender;
   ageGroup: string;
@@ -79,11 +54,27 @@ export interface SwimmerProfile {
   id: string;
   firstName: string;
   lastName: string;
+  name?: string;
   gender: Gender;
-  age: number;
-  gradYear: number;
+  age?: number;
+  gradYear: number | null;
   section: Section;
+  specialtyStroke?: Stroke;
   isAlumni?: boolean;
+}
+
+export interface RaceResult {
+  swimmerId: string;
+  swimmerName: string;
+  event: string;
+  time: string | null;
+  noShow: boolean;
+  disqualified: boolean;
+  exhibition: boolean;
+  place: number | null;
+  personalBestDiff: number | null;
+  date: string;
+  meetName: string;
 }
 
 export interface CoachProfile {
