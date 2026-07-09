@@ -51,30 +51,16 @@ export interface RecordEntry {
 }
 
 export interface SwimmerProfile {
-  id: string;
-  firstName: string;
-  lastName: string;
+  id: string; // slug, e.g. "techid-tongviseskul" — used in /swimmers/[id]
+  firstName?: string;
+  lastName?: string;
   name?: string;
   gender: Gender;
   age?: number;
-  gradYear: number | null;
+  gradYear: number | null; // null for swimmers not yet in a grad-year-tracked grade
   section: Section;
   specialtyStroke?: Stroke;
   isAlumni?: boolean;
-}
-
-export interface RaceResult {
-  swimmerId: string;
-  swimmerName: string;
-  event: string;
-  time: string | null;
-  noShow: boolean;
-  disqualified: boolean;
-  exhibition: boolean;
-  place: number | null;
-  personalBestDiff: number | null;
-  date: string;
-  meetName: string;
 }
 
 export interface CoachProfile {
@@ -84,4 +70,18 @@ export interface CoachProfile {
   title: string;
   qualifications: string;
   bio: string;
+}
+
+export interface RaceResult {
+  swimmerId: string;          // matches SwimmerProfile.id
+  swimmerName: string;
+  event: string;              // e.g. "50 Freestyle", "200 Individual Medley" — matches SwimEvent
+  time: string | null;        // null when noShow or disqualified with no time recorded
+  noShow: boolean;
+  disqualified: boolean;
+  exhibition: boolean;
+  place: number | null;
+  personalBestDiff: number | null;
+  date: string;               // "M/D/YYYY" as printed on the source report
+  meetName: string;
 }
