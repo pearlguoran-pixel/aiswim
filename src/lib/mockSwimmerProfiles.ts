@@ -11,7 +11,8 @@ import type { SwimmerProfile } from './types';
 export const mockSwimmerProfiles: SwimmerProfile[] = [
   {
     id: 'akasya-ayturk',
-    name: 'Akasya Ayturk',
+    firstName: 'Akasya',
+    lastName: 'Ayturk',
     gender: 'Female',
     age: 10,
     gradYear: null,
@@ -19,7 +20,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'yu-bo-chen',
-    name: 'Yu Bo Chen',
+    firstName: 'Yu',
+    lastName: 'Bo Chen',
     gender: 'Male',
     age: 14,
     gradYear: 2029,
@@ -27,7 +29,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'nattakit-choochaisengrat',
-    name: 'Nattakit Choochaisengrat',
+    firstName: 'Nattakit',
+    lastName: 'Choochaisengrat',
     gender: 'Male',
     age: 15,
     gradYear: 2028,
@@ -35,7 +38,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'matilde-cissna',
-    name: 'Matilde Cissna',
+    firstName: 'Matilde',
+    lastName: 'Cissna',
     gender: 'Female',
     age: 15,
     gradYear: 2028,
@@ -43,7 +47,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'yunxi-gao',
-    name: 'Yunxi Gao',
+    firstName: 'Yunxi',
+    lastName: 'Gao',
     gender: 'Male',
     age: 7,
     gradYear: null,
@@ -51,7 +56,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'ran-guo',
-    name: 'Ran Guo',
+    firstName: 'Ran',
+    lastName: 'Guo',
     gender: 'Female',
     age: 16,
     gradYear: 2027,
@@ -59,7 +65,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'nanon-hanphanpong',
-    name: 'Nanon Hanphanpong',
+    firstName: 'Nanon',
+    lastName: 'Hanphanpong',
     gender: 'Male',
     age: 13,
     gradYear: null,
@@ -67,7 +74,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'pornnapa-khangrang',
-    name: 'Pornnapa Khangrang',
+    firstName: 'Pornnapa',
+    lastName: 'Khangrang',
     gender: 'Female',
     age: 15,
     gradYear: 2029,
@@ -75,7 +83,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'sion-kim',
-    name: 'Sion Kim',
+    firstName: 'Sion',
+    lastName: 'Kim',
     gender: 'Female',
     age: 16,
     gradYear: 2027,
@@ -83,7 +92,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'varidrada-kithen',
-    name: 'Varidrada Kithen',
+    firstName: 'Varidrada',
+    lastName: 'Kithen',
     gender: 'Female',
     age: 14,
     gradYear: 2029,
@@ -91,7 +101,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'soo-yeon-kwon',
-    name: 'Soo Yeon Kwon',
+    firstName: 'Soo',
+    lastName: 'Yeon Kwon',
     gender: 'Female',
     age: 16,
     gradYear: 2028,
@@ -99,7 +110,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'trevin-laduke',
-    name: 'Trevin LaDuke',
+    firstName: 'Trevin',
+    lastName: 'LaDuke',
     gender: 'Male',
     age: 13,
     gradYear: null,
@@ -107,7 +119,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'abigail-leighton',
-    name: 'Abigail Leighton',
+    firstName: 'Abigail',
+    lastName: 'Leighton',
     gender: 'Female',
     age: 14,
     gradYear: null,
@@ -115,7 +128,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'eleanor-leighton',
-    name: 'Eleanor Leighton',
+    firstName: 'Eleanor',
+    lastName: 'Leighton',
     gender: 'Female',
     age: 15,
     gradYear: 2028,
@@ -123,7 +137,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'wenxi-li',
-    name: 'Wenxi Li',
+    firstName: 'Wenxi',
+    lastName: 'Li',
     gender: 'Female',
     age: 11,
     gradYear: null,
@@ -131,7 +146,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'arthas-limsakulwattana',
-    name: 'Arthas Limsakulwattana',
+    firstName: 'Arthas',
+    lastName: 'Limsakulwattana',
     gender: 'Male',
     age: 9,
     gradYear: null,
@@ -139,7 +155,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'laphon-manosuthisan',
-    name: 'Laphon Manosuthisan',
+    firstName: 'Laphon',
+    lastName: 'Manosuthisan',
     gender: 'Male',
     age: 15,
     gradYear: 2028,
@@ -147,7 +164,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'erica-medyarova',
-    name: 'Erica Medyarova',
+    firstName: 'Erica',
+    lastName: 'Medyarova',
     gender: 'Female',
     age: 15,
     gradYear: 2028,
@@ -155,7 +173,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'palathip-panmai',
-    name: 'Palathip Panmai',
+    firstName: 'Palathip',
+    lastName: 'Panmai',
     gender: 'Male',
     age: 11,
     gradYear: null,
@@ -163,7 +182,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'ploynapas-pholsuwanchai',
-    name: 'Ploynapas Pholsuwanchai',
+    firstName: 'Ploynapas',
+    lastName: 'Pholsuwanchai',
     gender: 'Female',
     age: 11,
     gradYear: null,
@@ -171,7 +191,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'thitibhorn-pronpanompong',
-    name: 'Thitibhorn Pronpanompong',
+    firstName: 'Thitibhorn',
+    lastName: 'Pronpanompong',
     gender: 'Female',
     age: 11,
     gradYear: null,
@@ -179,7 +200,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'tiarn-sripongtanakul',
-    name: 'Tiarn Sripongtanakul',
+    firstName: 'Tiarn',
+    lastName: 'Sripongtanakul',
     gender: 'Female',
     age: 16,
     gradYear: 2028,
@@ -187,7 +209,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'tyler-srisumrid',
-    name: 'Tyler Srisumrid',
+    firstName: 'Tyler',
+    lastName: 'Srisumrid',
     gender: 'Male',
     age: 12,
     gradYear: null,
@@ -195,7 +218,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'virunpat-sriyanuwatkul',
-    name: 'Virunpat Sriyanuwatkul',
+    firstName: 'Virunpat',
+    lastName: 'Sriyanuwatkul',
     gender: 'Female',
     age: 16,
     gradYear: 2027,
@@ -203,7 +227,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'kanyapak-tamonut',
-    name: 'Kanyapak Tamonut',
+    firstName: 'Kanyapak',
+    lastName: 'Tamonut',
     gender: 'Female',
     age: 13,
     gradYear: null,
@@ -211,7 +236,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'pattadon-tamonut',
-    name: 'Pattadon Tamonut',
+    firstName: 'Pattadon',
+    lastName: 'Tamonut',
     gender: 'Male',
     age: 10,
     gradYear: null,
@@ -219,7 +245,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'abhikhun-tanchanpongs',
-    name: 'Abhikhun Tanchanpongs',
+    firstName: 'Abhikhun',
+    lastName: 'Tanchanpongs',
     gender: 'Male',
     age: 16,
     gradYear: 2027,
@@ -227,7 +254,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'punyapat-thepnumsommanus',
-    name: 'Punyapat Thepnumsommanus',
+    firstName: 'Punyapat',
+    lastName: 'Thepnumsommanus',
     gender: 'Male',
     age: 17,
     gradYear: 2026,
@@ -235,7 +263,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'narisara-tiranatvitayakul',
-    name: 'Narisara Tiranatvitayakul',
+    firstName: 'Narisara',
+    lastName: 'Tiranatvitayakul',
     gender: 'Female',
     age: 12,
     gradYear: null,
@@ -243,7 +272,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'techid-tongviseskul',
-    name: 'Techid Tongviseskul',
+    firstName: 'Techid',
+    lastName: 'Tongviseskul',
     gender: 'Male',
     age: 17,
     gradYear: 2026,
@@ -251,7 +281,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'peeravich-uea-amonvanish',
-    name: 'Peeravich Uea-amonvanish',
+    firstName: 'Peeravich',
+    lastName: 'Uea-amonvanish',
     gender: 'Male',
     age: 11,
     gradYear: null,
@@ -259,7 +290,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'andrew-vitayakul',
-    name: 'Andrew Vitayakul',
+    firstName: 'Andrew',
+    lastName: 'Vitayakul',
     gender: 'Male',
     age: 13,
     gradYear: null,
@@ -267,7 +299,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'bhat-wongtiraporn',
-    name: 'Bhat Wongtiraporn',
+    firstName: 'Bhat',
+    lastName: 'Wongtiraporn',
     gender: 'Male',
     age: 14,
     gradYear: 2028,
@@ -275,7 +308,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'wenran-xie',
-    name: 'Wenran Xie',
+    firstName: 'Wenran',
+    lastName: 'Xie',
     gender: 'Female',
     age: 12,
     gradYear: null,
@@ -283,7 +317,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'vincent-yodpijit',
-    name: 'Vincent Yodpijit',
+    firstName: 'Vincent',
+    lastName: 'Yodpijit',
     gender: 'Male',
     age: 10,
     gradYear: null,
@@ -291,7 +326,8 @@ export const mockSwimmerProfiles: SwimmerProfile[] = [
   },
   {
     id: 'qingzhi-zhang',
-    name: 'Qingzhi Zhang',
+    firstName: 'Qingzhi',
+    lastName: 'Zhang',
     gender: 'Female',
     age: 8,
     gradYear: null,
