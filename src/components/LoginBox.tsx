@@ -2,7 +2,6 @@
 
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { loginWithPasscode } from "@/lib/authActions";
 import type { Role } from "@/lib/session";
 import styles from "./LoginBox.module.css";
 
@@ -11,6 +10,11 @@ interface LoginBoxProps {
   heading: string;
   description: string;
 }
+
+const LOGIN_ENDPOINT: Record<Role, string> = {
+  parent: "/api/parent/login",
+  admin: "/api/admin/login",
+};
 
 export default function LoginBox({ role, heading, description }: LoginBoxProps) {
   const router = useRouter();
@@ -23,13 +27,25 @@ export default function LoginBox({ role, heading, description }: LoginBoxProps) 
     setError(null);
 
     startTransition(async () => {
-      const result = await loginWithPasscode(role, passcode);
-      if (!result.success) {
-        setError(result.error ?? "Something went wrong. Try again.");
-        return;
+      try {
+        const res = await fetch(LOGIN_ENDPOINT[role], {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ passcode }),
+        });
+
+        const data = await res.json().catch(() => ({}));
+
+        if (!res.ok) {
+          setError(data?.error ?? "Something went wrong. Try again.");
+          return;
+        }
+
+        router.push("/home");
+        router.refresh();
+      } catch {
+        setError("Couldn't reach the server. Try again.");
       }
-      router.push("/home");
-      router.refresh();
     });
   }
 
