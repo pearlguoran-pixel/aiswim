@@ -4,7 +4,7 @@ import { getServerSession } from "@/lib/session";
 import styles from "./Navbar.module.css";
 
 const navLinks = [
-  { href: "/", label: "Home" },
+  { href: "/home", label: "Home" },
   { href: "/records", label: "Records" },
   { href: "/roster", label: "Roster" },
   { href: "/coaches", label: "Coaches" },
@@ -14,9 +14,10 @@ interface NavbarProps {
   activePath?: string;
 }
 
-export default async function Navbar({ activePath = "/" }: NavbarProps) {
-  const isAuthenticated = await getServerSession();
-  const portalHref = isAuthenticated ? "/admin/import" : "/admin/login";
+export default async function Navbar({ activePath = "/home" }: NavbarProps) {
+  const session = await getServerSession();
+  const portalHref = session === "admin" ? "/admin/import" : "/admin/login";
+  const showPortalLink = session === "admin";
 
   return (
     <nav className={styles.nav}>
@@ -39,11 +40,13 @@ export default async function Navbar({ activePath = "/" }: NavbarProps) {
             </Link>
           </li>
         ))}
-        <li>
-          <Link href={portalHref} className={styles.portalBtn}>
-            Community Portal
-          </Link>
-        </li>
+        {showPortalLink && (
+          <li>
+            <Link href={portalHref} className={styles.portalBtn}>
+              Community Portal
+            </Link>
+          </li>
+        )}
       </ul>
     </nav>
   );

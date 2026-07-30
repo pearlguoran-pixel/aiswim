@@ -1,30 +1,36 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import CountdownBar from "@/components/CountdownBar";
-import MeetsList from "@/components/MeetsList";
-import DatesList from "@/components/DatesList";
-import { getHomePageData } from "@/lib/queries";
+import { redirect } from "next/navigation";
+import { getServerSession } from "@/lib/session";
+import ShieldLogo from "@/components/ShieldLogo";
+import LoginBox from "@/components/LoginBox";
 import styles from "./page.module.css";
 
-// Always fetch fresh data — this page depends on "today's date" for
-// past/next/upcoming status, so it shouldn't be statically cached.
-export const dynamic = "force-dynamic";
-
-export default async function HomePage() {
-  const { meets, dates } = await getHomePageData();
+export default async function LoginPage() {
+  const session = await getServerSession();
+  if (session) {
+    redirect("/home");
+  }
 
   return (
-    <>
-      <Navbar activePath="/" />
-      <Hero />
-      <CountdownBar />
+    <div className={styles.page}>
+      <div className={styles.intro}>
+        <ShieldLogo size={56} />
+        <p className={styles.eyebrow}>International Community School — Bangkok</p>
+        <h1 className={styles.title}>Eagle Rays</h1>
+        <p className={styles.subtitle}>Sign in to see meets, results, and team news.</p>
+      </div>
 
-      <main className={styles.main}>
-        <div className={styles.twoCol}>
-          <MeetsList meets={meets} />
-          <DatesList dates={dates} />
-        </div>
-      </main>
-    </>
+      <div className={styles.boxes}>
+        <LoginBox
+          role="parent"
+          heading="Parents &amp; Swimmers"
+          description="Enter the team passcode to view meet schedules, results, and announcements."
+        />
+        <LoginBox
+          role="admin"
+          heading="Coaches &amp; Admin"
+          description="Enter the admin passcode to sign in and manage the Community Portal."
+        />
+      </div>
+    </div>
   );
 }

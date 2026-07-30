@@ -1,24 +1,12 @@
 import { redirect } from "next/navigation";
 import { getServerSession } from "@/lib/session";
-import LoginForm from "@/components/admin/LoginForm";
-import styles from "./login.module.css";
 
-export default async function AdminLoginPage() {
-  const isAuthenticated = await getServerSession();
-  if (isAuthenticated) {
-    redirect("/admin/import");
-  }
-
-  return (
-    <div className={styles.page}>
-      <div className={styles.card}>
-        <p className={styles.eyebrow}>Eagle Rays — Staff Only</p>
-        <h1 className={styles.title}>Admin sign in</h1>
-        <p className={styles.subtitle}>
-          Enter the team passcode to manage data imports and the relay analyzer.
-        </p>
-        <LoginForm />
-      </div>
-    </div>
-  );
+// Superseded by the unified login page at "/", which now handles both
+// parent and admin sign-in with a role-based session (see src/lib/session.ts
+// and src/components/LoginBox.tsx). Kept as a redirect rather than deleted
+// so any existing links to /admin/login (e.g. from Navbar in older builds,
+// bookmarks) still land somewhere correct instead of 404ing.
+export default async function AdminLoginRedirectPage() {
+  const session = await getServerSession();
+  redirect(session === "admin" ? "/admin/import" : "/");
 }
