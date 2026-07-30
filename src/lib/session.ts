@@ -1,12 +1,15 @@
 import { cookies } from "next/headers";
-import { createHmac, timingSafeEqual } from "crypto";
 
 // ---------------------------------------------------------------------------
 // ADMIN SESSION
 // Signed, stateless session token (HMAC over an expiry timestamp) stored in
 // a cookie. Verified without a DB lookup, which is why isValidSessionToken
-// can run inside middleware. Passcode is env-configured (ADMIN_PASSCODE) —
-// see /api/admin/login.
+// can run inside middleware (Edge Runtime). Passcode is env-configured
+// (ADMIN_PASSCODE) — see /api/admin/login.
+//
+// Uses Web Crypto (SubtleCrypto) rather than Node's `crypto` module because
+// middleware.ts runs on the Edge Runtime, which doesn't support Node's
+// crypto — Web Crypto works in both Node and Edge.
 // ---------------------------------------------------------------------------
 
 export const ADMIN_SESSION_COOKIE = "eaglerays_admin_session";
@@ -22,8 +25,22 @@ function getSecret(): string {
   return secret;
 }
 
-function sign(payload: string): string {
-  return createHmac("sha256", getSecret()).update(payload).digest("hex");
+function toHex(buffer: ArrayBuffer): string {
+  return Array.from(new Uint8Array(buffer))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+async function sign(payload: string): Promise<string> {
+  const key = await crypto.subtle.importKey(
+    "raw",
+    new TextEncoder().encode(getSecret()),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"]
+  );
+  const signature = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(payload));
+  return toHex(signature);
 }
 
 /**
@@ -33,7 +50,7 @@ function sign(payload: string): string {
 export async function createSessionToken(): Promise<string> {
   const expires = Date.now() + ADMIN_SESSION_MAX_AGE * 1000;
   const payload = String(expires);
-  const signature = sign(payload);
+  const signature = await sign(payload);
   return `${payload}.${signature}`;
 }
 
@@ -46,12 +63,9 @@ export async function isValidSessionToken(token: string | undefined): Promise<bo
   const [payload, signature] = token.split(".");
   if (!payload || !signature) return false;
 
-  const expected = sign(payload);
+  const expected = await sign(payload);
 
-  // Constant-time comparison to avoid timing attacks.
-  const a = Buffer.from(signature);
-  const b = Buffer.from(expected);
-  if (a.length !== b.length || !timingSafeEqual(a, b)) {
+  if (signature.length !== expected.length || signature !== expected) {
     return false;
   }
 
@@ -76,11 +90,8 @@ export async function isAdminAuthenticated(): Promise<boolean> {
 // ---------------------------------------------------------------------------
 // PARENT SESSION
 // Parents only need a simple "did they enter the shared passcode" gate for
-// viewing the public site (see spec: /home and other public pages redirect
-// to / without it). No signed token needed since middleware doesn't guard
-// parent routes today — plain cookie is enough. If parent-gated pages need
-// middleware protection later, promote this to a signed token the same way
-// admin's works above.
+// viewing the public site. No signed token needed since it's just a shared
+// family passcode, not sensitive — plain cookie is enough.
 // ---------------------------------------------------------------------------
 
 export const PARENT_SESSION_COOKIE = "eaglerays_parent_session";
@@ -105,8 +116,6 @@ export async function isParentAuthenticated(): Promise<boolean> {
 
 // ---------------------------------------------------------------------------
 // COMBINED HELPERS
-// Used by pages/components (Navbar, /home) that just need "is anyone signed
-// in" and "what role" without caring which system backs it.
 // ---------------------------------------------------------------------------
 
 export type Role = "parent" | "admin";
