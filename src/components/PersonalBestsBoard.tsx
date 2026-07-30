@@ -1,53 +1,50 @@
-// src/components/PersonalBestsBoard.tsx
-import type { RaceResult } from '@/lib/types';
-import { EVENT_GROUPS, formatTime } from '@/lib/swimmerStats';
-import styles from './PersonalBestsBoard.module.css';
+import type { PersonalBest } from "@/lib/swimmerStats";
+import { eventToStroke } from "@/lib/swimmerStats";
+import type { Stroke } from "@/lib/types";
+import styles from "./PersonalBestsBoard.module.css";
 
-export default function PersonalBestsBoard({
-  bests,
-}: {
-  bests: Map<string, RaceResult>;
-}) {
-  const hasAnyTimes = bests.size > 0;
+interface PersonalBestsBoardProps {
+  personalBests: PersonalBest[];
+}
+
+const STROKE_ORDER: Stroke[] = [
+  "Freestyle",
+  "Backstroke",
+  "Breaststroke",
+  "Butterfly",
+  "IM",
+  "Distance",
+];
+
+export default function PersonalBestsBoard({ personalBests }: PersonalBestsBoardProps) {
+  const grouped = STROKE_ORDER.map((stroke) => ({
+    stroke,
+    bests: personalBests
+      .filter((pb) => eventToStroke(pb.event) === stroke)
+      .sort((a, b) => a.seconds - b.seconds),
+  })).filter((group) => group.bests.length > 0);
 
   return (
     <section className={styles.board}>
-      <h2 className={styles.heading}>Personal Bests</h2>
+      <h2 className={styles.title}>Personal Bests</h2>
 
-      {!hasAnyTimes && (
+      {grouped.length === 0 ? (
         <p className={styles.empty}>No recorded times yet.</p>
-      )}
-
-      {hasAnyTimes && (
-        <div className={styles.groups}>
-          {EVENT_GROUPS.map((group) => {
-            const rows = group.events
-              .map((event) => ({ event, best: bests.get(event) }))
-              .filter((row) => row.best); // only render events this swimmer has actually raced
-
-            if (rows.length === 0) return null;
-
-            return (
-              <div key={group.stroke} className={styles.lane}>
-                <h3 className={styles.laneLabel}>{group.stroke}</h3>
-                <div className={styles.tiles}>
-                  {rows.map(({ event, best }) => (
-                    <div key={event} className={styles.tile}>
-                      <span className={styles.tileEvent}>{event}</span>
-                      <span className={styles.tileTime}>
-                        {formatTime(best!.time as string)}
-                        {best!.exhibition && (
-                          <span className={styles.exBadge} title="Set in an exhibition swim">
-                            X
-                          </span>
-                        )}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
+      ) : (
+        <div className={styles.lanes}>
+          {grouped.map((group) => (
+            <div className={styles.lane} key={group.stroke}>
+              <h3 className={styles.laneLabel}>{group.stroke}</h3>
+              <ul className={styles.times}>
+                {group.bests.map((pb) => (
+                  <li className={styles.timeRow} key={pb.event}>
+                    <span className={styles.event}>{pb.event}</span>
+                    <span className={styles.time}>{pb.time}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       )}
     </section>

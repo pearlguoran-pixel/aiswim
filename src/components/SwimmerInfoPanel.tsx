@@ -1,21 +1,22 @@
-// src/components/SwimmerInfoPanel.tsx
-import type { SwimmerProfile } from '@/lib/types';
-import styles from './SwimmerInfoPanel.module.css';
+import type { SwimmerProfile } from "@/lib/types";
+import styles from "./SwimmerInfoPanel.module.css";
 
-function initials(firstName: string, lastName: string): string {
-  return `${firstName[0] ?? ''}${lastName[0] ?? ''}`.toUpperCase();
+interface SwimmerInfoPanelProps {
+  swimmer: SwimmerProfile;
 }
 
-export default function SwimmerInfoPanel({ swimmer }: { swimmer: SwimmerProfile }) {
-  const fullName = `${swimmer.firstName} ${swimmer.lastName}`.trim();
+function initials(firstName: string, lastName: string): string {
+  return `${firstName.charAt(0)}${lastName.charAt(0)}`.toUpperCase();
+}
 
+export default function SwimmerInfoPanel({ swimmer }: SwimmerInfoPanelProps) {
   return (
     <aside className={styles.panel}>
       <div className={styles.avatar}>{initials(swimmer.firstName, swimmer.lastName)}</div>
-      <h1 className={styles.name}>{fullName}</h1>
-      <span className={styles.sectionBadge}>{swimmer.section}</span>
-
-      <dl className={styles.infoList}>
+      <h1 className={styles.name}>
+        {swimmer.firstName} {swimmer.lastName}
+      </h1>
+      <dl className={styles.info}>
         <div className={styles.infoRow}>
           <dt>Gender</dt>
           <dd>{swimmer.gender}</dd>
@@ -25,8 +26,8 @@ export default function SwimmerInfoPanel({ swimmer }: { swimmer: SwimmerProfile 
           <dd>{swimmer.age}</dd>
         </div>
         <div className={styles.infoRow}>
-          <dt>Grad Year</dt>
-          <dd>{swimmer.gradYear ?? '—'}</dd>
+          <dt>Class of</dt>
+          <dd>{swimmer.gradYear ?? "—"}</dd>
         </div>
         <div className={styles.infoRow}>
           <dt>Section</dt>

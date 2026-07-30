@@ -1,68 +1,63 @@
-// src/components/RecentMeetResults.tsx
-import type { RecentMeet } from '@/lib/swimmerStats';
-import { formatTime } from '@/lib/swimmerStats';
-import styles from './RecentMeetResults.module.css';
+import type { RaceResult } from "@/lib/types";
+import styles from "./RecentMeetResults.module.css";
 
-function PlaceBadge({ place }: { place: number | null }) {
-  if (place === null) return <span className={styles.noPlace}>—</span>;
-  const medal = place === 1 ? styles.gold : place === 2 ? styles.silver : place === 3 ? styles.bronze : styles.place;
-  return <span className={`${styles.placeBadge} ${medal}`}>{place}</span>;
+interface RecentMeetResultsProps {
+  results: RaceResult[];
 }
 
-export default function RecentMeetResults({ meet }: { meet: RecentMeet | null }) {
-  if (!meet) {
+function placeBadgeClass(place: number | null): string {
+  if (place === 1) return styles.gold;
+  if (place === 2) return styles.silver;
+  if (place === 3) return styles.bronze;
+  return styles.noPlace;
+}
+
+export default function RecentMeetResults({ results }: RecentMeetResultsProps) {
+  if (results.length === 0) {
     return (
       <section className={styles.section}>
-        <h2 className={styles.heading}>Most Recent Meet</h2>
-        <p className={styles.empty}>No meet results on file yet.</p>
+        <h2 className={styles.title}>Most Recent Meet</h2>
+        <p className={styles.empty}>No meet results recorded yet.</p>
       </section>
     );
   }
 
+  const { meetName, date } = results[0];
+
   return (
     <section className={styles.section}>
-      <div className={styles.meetHeader}>
-        <h2 className={styles.heading}>Most Recent Meet</h2>
-        <div className={styles.meetMeta}>
-          <span className={styles.meetName}>{meet.meetName}</span>
-          <span className={styles.meetDate}>{meet.date}</span>
-        </div>
-      </div>
+      <h2 className={styles.title}>Most Recent Meet</h2>
+      <p className={styles.meetMeta}>
+        {meetName} <span className={styles.dot}>·</span> {date}
+      </p>
 
       <table className={styles.table}>
         <thead>
           <tr>
+            <th className={styles.placeCol}>Place</th>
             <th>Event</th>
             <th>Time</th>
-            <th>Place</th>
-            <th>vs. PB</th>
+            <th>Notes</th>
           </tr>
         </thead>
         <tbody>
-          {meet.results.map((r, i) => (
-            <tr key={`${r.event}-${i}`}>
-              <td>{r.event}</td>
-              <td className={styles.timeCell}>
-                {r.noShow ? (
-                  <span className={styles.tag}>NS</span>
-                ) : r.disqualified ? (
-                  <span className={styles.tagDq}>DQ</span>
+          {results.map((r) => (
+            <tr key={`${r.event}-${r.date}-${r.time ?? "none"}`}>
+              <td>
+                {r.place ? (
+                  <span className={`${styles.badge} ${placeBadgeClass(r.place)}`}>{r.place}</span>
                 ) : (
-                  <>
-                    {formatTime(r.time as string)}
-                    {r.exhibition && <span className={styles.tag}>X</span>}
-                  </>
+                  <span className={styles.dash}>—</span>
                 )}
               </td>
-              <td>
-                <PlaceBadge place={r.place} />
-              </td>
-              <td className={styles.diffCell}>
-                {r.personalBestDiff === null
-                  ? '—'
-                  : r.personalBestDiff <= 0
-                  ? <span className={styles.improved}>{r.personalBestDiff.toFixed(2)}</span>
-                  : <span className={styles.regressed}>+{r.personalBestDiff.toFixed(2)}</span>}
+              <td>{r.event}</td>
+              <td className={styles.time}>{r.time ?? "—"}</td>
+              <td className={styles.tags}>
+                {r.disqualified && <span className={`${styles.tag} ${styles.tagDq}`}>DQ</span>}
+                {r.noShow && <span className={`${styles.tag} ${styles.tagNs}`}>NS</span>}
+                {r.exhibition && (
+                  <span className={`${styles.tag} ${styles.tagExh}`}>Exhibition</span>
+                )}
               </td>
             </tr>
           ))}

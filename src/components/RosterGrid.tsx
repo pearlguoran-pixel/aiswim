@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import type { SwimmerProfile, Section, Gender } from "@/lib/types";
 import styles from "./RosterGrid.module.css";
 
@@ -83,7 +84,11 @@ export default function RosterGrid({ swimmers }: RosterGridProps) {
 
       <div className={styles.grid}>
         {filtered.map((swimmer, index) => (
-          <div className={styles.card} key={swimmer.id}>
+          <Link
+            href={`/swimmers/${swimmer.id}`}
+            className={styles.card}
+            key={swimmer.id}
+          >
             <span className={styles.lane}>{String(index + 1).padStart(2, "0")}</span>
             <h3 className={styles.name}>
               {swimmer.firstName} {swimmer.lastName}
@@ -96,14 +101,14 @@ export default function RosterGrid({ swimmers }: RosterGridProps) {
               </div>
               <div>
                 <dt>Class of</dt>
-                <dd>{swimmer.gradYear}</dd>
+                <dd>{swimmer.gradYear ?? "—"}</dd>
               </div>
               <div>
                 <dt>Gender</dt>
                 <dd>{swimmer.gender}</dd>
               </div>
             </dl>
-          </div>
+          </Link>
         ))}
 
         {filtered.length === 0 && <p className={styles.empty}>No swimmers match these filters.</p>}

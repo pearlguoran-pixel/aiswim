@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import PageHeader from "@/components/PageHeader";
 import RosterGrid from "@/components/RosterGrid";
-import { mockRoster } from "@/lib/mockRoster";
+import { mockSwimmerProfiles } from "@/lib/mockSwimmerProfiles";
 
 export default function RosterPage() {
   return (
@@ -10,9 +10,9 @@ export default function RosterPage() {
       <PageHeader
         eyebrow="Smart Roster"
         title="Meet the Team"
-        subtitle="Search by name or filter by section and specialty stroke."
+        subtitle="Search by name or filter by section and gender."
       />
-      <RosterGrid swimmers={mockRoster} />
+      <RosterGrid swimmers={mockSwimmerProfiles} />
     </>
   );
 }

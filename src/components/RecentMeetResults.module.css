@@ -1,152 +1,123 @@
-/* src/components/RecentMeetResults.module.css */
-
 .section {
-  margin-top: 1.75rem;
+  margin-bottom: 2rem;
 }
 
-.meetHeader {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.heading {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 500;
-  font-size: 1.1rem;
+.title {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   color: #0a2240;
-  margin: 0;
+  margin: 0 0 0.35rem;
 }
 
 .meetMeta {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  text-align: right;
+  color: #4b5563;
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
 }
 
-.meetName {
-  font-weight: 600;
-  color: #0a2240;
-}
-
-.meetDate {
-  font-size: 0.8rem;
-  color: #6b7280;
+.dot {
+  color: #1c7c9c;
+  margin: 0 0.35rem;
 }
 
 .empty {
   color: #6b7280;
-  font-size: 0.95rem;
+  font-style: italic;
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 .table th {
   text-align: left;
-  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
   color: #6b7280;
-  padding: 0.5rem 0.75rem;
+  padding: 0.6rem 0.75rem;
   border-bottom: 2px solid #0a2240;
+}
+
+.placeCol {
+  width: 64px;
 }
 
 .table td {
   padding: 0.65rem 0.75rem;
   border-bottom: 1px solid #e5e7eb;
-  color: #1f2937;
 }
 
-.table tbody tr:hover {
-  background: rgba(28, 124, 156, 0.06);
-}
-
-.timeCell {
+.time {
+  font-family: "Oswald", sans-serif;
   font-variant-numeric: tabular-nums;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
+  font-weight: 600;
+  color: #0a2240;
 }
 
-.placeBadge {
+.badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.6rem;
-  height: 1.6rem;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   font-weight: 700;
-  font-size: 0.8rem;
-  color: #fff;
-  background: #1c7c9c;
+  font-size: 0.85rem;
+  color: #0a2240;
 }
 
 .gold {
-  background: #F5C020;
-  color: #0a2240;
+  background: #f5c020;
 }
 
 .silver {
-  background: #b9c2cc;
-  color: #0a2240;
+  background: #c7ccd1;
 }
 
 .bronze {
-  background: #c98a4b;
+  background: #cd8b53;
   color: #ffffff;
 }
 
 .noPlace {
+  display: none;
+}
+
+.dash {
   color: #9ca3af;
+}
+
+.tags {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
 }
 
 .tag {
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  color: #0a2240;
-  background: #e5eef3;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.45rem;
   border-radius: 4px;
-  padding: 0.05rem 0.3rem;
 }
 
 .tagDq {
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: #fff;
-  background: #b3261e;
-  border-radius: 4px;
-  padding: 0.15rem 0.4rem;
+  background: #fee2e2;
+  color: #b91c1c;
 }
 
-.diffCell {
-  font-variant-numeric: tabular-nums;
+.tagNs {
+  background: #f3f4f6;
+  color: #6b7280;
 }
 
-.improved {
+.tagExh {
+  background: #e0f2fe;
   color: #1c7c9c;
-  font-weight: 600;
-}
-
-.regressed {
-  color: #9ca3af;
-}
-
-@media (max-width: 640px) {
-  .table {
-    font-size: 0.8rem;
-  }
-  .table th:nth-child(4),
-  .table td:nth-child(4) {
-    display: none;
-  }
 }
