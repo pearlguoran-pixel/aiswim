@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ShieldLogo from "./ShieldLogo";
+import { getServerSession } from "@/lib/session";
 import styles from "./Navbar.module.css";
 
 const navLinks = [
@@ -13,7 +14,10 @@ interface NavbarProps {
   activePath?: string;
 }
 
-export default function Navbar({ activePath = "/" }: NavbarProps) {
+export default async function Navbar({ activePath = "/" }: NavbarProps) {
+  const isAuthenticated = await getServerSession();
+  const portalHref = isAuthenticated ? "/admin/import" : "/admin/login";
+
   return (
     <nav className={styles.nav}>
       <div className={styles.logo}>
@@ -36,7 +40,7 @@ export default function Navbar({ activePath = "/" }: NavbarProps) {
           </li>
         ))}
         <li>
-          <Link href="/admin" className={styles.portalBtn}>
+          <Link href={portalHref} className={styles.portalBtn}>
             Community Portal
           </Link>
         </li>
