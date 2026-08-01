@@ -1,11 +1,8 @@
 // src/components/Navbar.tsx
-// Overwrites previous version.
-// Change from v9: "Community Portal" renamed to "Edit" and now routes to /admin/events
-// All other logic (session-gating, active path, Home → /home) unchanged.
 
 import Link from "next/link";
 import { getServerSession } from "@/lib/session";
-import styles from "./Navbar.module.css"; // unchanged CSS file
+import styles from "./Navbar.module.css";
 
 interface NavbarProps {
   activePath?: string;
@@ -54,16 +51,15 @@ export default async function Navbar({ activePath }: NavbarProps) {
           </Link>
         </li>
 
-        {/* "Edit" replaces "Community Portal" — admin only, routes to /admin/events */}
         {session === "admin" && (
           <li>
             <Link
-              href="/admin/events"
+              href="/admin/import"
               className={`${styles.portalBtn} ${
                 activePath?.startsWith("/admin") ? styles.active : ""
               }`}
             >
-              Edit
+              Community Portal
             </Link>
           </li>
         )}
