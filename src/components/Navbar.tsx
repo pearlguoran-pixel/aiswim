@@ -24,7 +24,7 @@ export default async function Navbar({ activePath }: NavbarProps) {
         <li>
           <Link
             href="/home"
-            className={activePath === "/home" ? styles.active : ""}
+            className={`${styles.link} ${activePath === "/home" ? styles.active : ""}`}
           >
             Home
           </Link>
@@ -32,7 +32,7 @@ export default async function Navbar({ activePath }: NavbarProps) {
         <li>
           <Link
             href="/records"
-            className={activePath === "/records" ? styles.active : ""}
+            className={`${styles.link} ${activePath === "/records" ? styles.active : ""}`}
           >
             Records
           </Link>
@@ -40,7 +40,7 @@ export default async function Navbar({ activePath }: NavbarProps) {
         <li>
           <Link
             href="/roster"
-            className={activePath === "/roster" ? styles.active : ""}
+            className={`${styles.link} ${activePath === "/roster" ? styles.active : ""}`}
           >
             Roster
           </Link>
@@ -48,7 +48,7 @@ export default async function Navbar({ activePath }: NavbarProps) {
         <li>
           <Link
             href="/coaches"
-            className={activePath === "/coaches" ? styles.active : ""}
+            className={`${styles.link} ${activePath === "/coaches" ? styles.active : ""}`}
           >
             Coaches
           </Link>
@@ -59,7 +59,7 @@ export default async function Navbar({ activePath }: NavbarProps) {
           <li>
             <Link
               href="/admin/events"
-              className={`${styles.editLink} ${
+              className={`${styles.portalBtn} ${
                 activePath?.startsWith("/admin") ? styles.active : ""
               }`}
             >
