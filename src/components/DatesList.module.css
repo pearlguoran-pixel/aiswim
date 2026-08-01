@@ -2,14 +2,14 @@
 
 .heading {
   font-family: "Oswald", sans-serif;
-  font-size: 0.65rem;
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.35);
-  margin: 0 0 12px;
+  color: #5b6472;
+  margin: 0 0 16px;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid #e3e6ea;
 }
 
 .list {
@@ -25,13 +25,13 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 10px 12px;
+  padding: 10px 8px;
   border-radius: 6px;
   transition: background 0.12s;
 }
 
 .item:hover {
-  background: rgba(255, 255, 255, 0.04);
+  background: #f7f8fa;
 }
 
 /* ── Date block ── */
@@ -40,12 +40,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  min-width: 42px;
-  height: 46px;
-  background: rgba(255, 255, 255, 0.06);
+  width: 44px;
+  min-width: 44px;
+  height: 48px;
+  background: #0a2240;
   border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
   flex-shrink: 0;
 }
 
@@ -54,13 +53,13 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.6);
   line-height: 1;
 }
 
 .day {
   font-family: "Oswald", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #fff;
   line-height: 1.1;
@@ -75,51 +74,49 @@
 .name {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #fff;
+  color: #0a2240;
 }
 
 .detail {
   font-size: 0.775rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: #5b6472;
   margin-top: 2px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* ── Type badges ── */
+/* ── Type badges — matching RecordsTable alumniTag style ── */
 .typeBadge {
   font-size: 0.6rem;
   font-family: "Oswald", sans-serif;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 2px 7px;
-  border-radius: 3px;
+  padding: 3px 8px;
+  border-radius: 999px;
   white-space: nowrap;
   flex-shrink: 0;
 }
 
 .type_party {
-  background: rgba(200, 100, 200, 0.12);
-  color: #dba0db;
-  border: 1px solid rgba(200, 100, 200, 0.25);
+  background: #f5c020;
+  color: #0a2240;
 }
 
 .type_payment {
-  background: rgba(80, 200, 120, 0.12);
-  color: #7ee8a2;
-  border: 1px solid rgba(80, 200, 120, 0.25);
+  background: #e8f4f8;
+  color: #1c7c9c;
+  border: 1px solid #b8dce8;
 }
 
 .type_ceremony {
-  background: rgba(245, 192, 32, 0.12);
-  color: var(--gold, #f5c020);
-  border: 1px solid rgba(245, 192, 32, 0.25);
+  background: #f5c020;
+  color: #0a2240;
 }
 
 .type_admin {
-  background: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #f0f1f3;
+  color: #5b6472;
+  border: 1px solid #e3e6ea;
 }

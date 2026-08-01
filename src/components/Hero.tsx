@@ -23,7 +23,7 @@ export default function Hero() {
         </p>
       </div>
 
-      {/* wave bleeds into navy, not white */}
+      {/* wave transition to white */}
       <div className={styles.wave} aria-hidden="true">
         <svg
           viewBox="0 0 900 42"
@@ -32,7 +32,7 @@ export default function Hero() {
         >
           <path
             d="M0,22 C150,42 300,2 450,22 C600,42 750,2 900,22 L900,42 L0,42 Z"
-            fill="#0a2240"
+            fill="#ffffff"
           />
         </svg>
       </div>

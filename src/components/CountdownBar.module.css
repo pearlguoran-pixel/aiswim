@@ -3,14 +3,11 @@
 .bar {
   background: var(--navy, #0a2240);
   color: white;
-  padding: 1rem 2rem 1.25rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  margin-bottom: 32px;
+  padding: 0.75rem 2rem;
 }
 
 .inner {
-  max-width: 1060px;
+  max-width: 1100px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -21,29 +18,26 @@
 .label {
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.55);
   white-space: nowrap;
 }
 
 .event {
   flex: 1;
-  font-family: "Oswald", sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   color: var(--gold, #f5c020);
   min-width: 180px;
 }
 
 .event small {
   display: block;
-  font-family: inherit;
-  font-size: 0.72rem;
+  font-size: 11px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.45);
-  margin-top: 2px;
-  letter-spacing: 0;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 1px;
 }
 
 .units {
@@ -52,19 +46,17 @@
 }
 
 .unit {
-  background: rgba(245, 192, 32, 0.1);
-  border: 1px solid rgba(245, 192, 32, 0.2);
+  background: rgba(245, 192, 32, 0.15);
   border-radius: 6px;
-  padding: 6px 10px;
+  padding: 5px 10px;
   text-align: center;
-  min-width: 50px;
+  min-width: 48px;
 }
 
 .unitNum {
   display: block;
-  font-family: "Oswald", sans-serif;
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 800;
   color: var(--gold, #f5c020);
   line-height: 1;
   font-variant-numeric: tabular-nums;
@@ -74,8 +66,8 @@
   display: block;
   font-size: 9px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.35);
-  margin-top: 3px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 2px;
 }
