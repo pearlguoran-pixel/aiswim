@@ -43,7 +43,7 @@ export default async function HomePage() {
       <Navbar activePath="/home" />
       <main className={styles.main}>
         <Hero />
-        <CountdownBar meets={meets} />
+        <CountdownBar />
 
         {/* Posted events board — visible to all logged-in roles */}
         {postedEvents.length > 0 && (
