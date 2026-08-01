@@ -4,7 +4,6 @@ import styles from "./Hero.module.css";
 export default function Hero() {
   return (
     <div className={styles.hero}>
-      {/* subtle watermark */}
       <div className={styles.watermark} aria-hidden="true">
         <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -24,7 +23,7 @@ export default function Hero() {
         </p>
       </div>
 
-      {/* wave transition to white */}
+      {/* wave bleeds into navy, not white */}
       <div className={styles.wave} aria-hidden="true">
         <svg
           viewBox="0 0 900 42"
@@ -33,7 +32,7 @@ export default function Hero() {
         >
           <path
             d="M0,22 C150,42 300,2 450,22 C600,42 750,2 900,22 L900,42 L0,42 Z"
-            fill="#ffffff"
+            fill="#0a2240"
           />
         </svg>
       </div>

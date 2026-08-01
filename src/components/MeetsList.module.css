@@ -1,117 +1,141 @@
+/* src/components/MeetsList.module.css */
+
 .heading {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  font-family: "Oswald", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--navy);
-  padding-bottom: 0.6rem;
-  margin-bottom: 0.75rem;
-  border-bottom: 3px solid var(--gold);
+  color: rgba(255, 255, 255, 0.35);
+  margin: 0 0 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .list {
   list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .item {
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 0.65rem 0;
-  border-bottom: 0.5px solid var(--border);
-  transition: background 0.1s;
-  border-radius: var(--radius);
-}
-
-.item:last-child {
-  border-bottom: none;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  transition: background 0.12s;
 }
 
 .item:hover {
-  background: rgba(245, 192, 32, 0.06);
-  padding-left: 8px;
-  padding-right: 8px;
-  margin: 0 -8px;
+  background: rgba(255, 255, 255, 0.04);
 }
 
+/* ── Date block ── */
 .dateBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
   min-width: 42px;
-  background: var(--navy);
-  border-radius: var(--radius);
-  padding: 4px 5px;
-  text-align: center;
-  color: white;
-  flex-shrink: 0;
+  height: 46px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .dateBlockGold {
-  background: var(--gold);
-}
-
-.dateBlockGold .month,
-.dateBlockGold .day {
-  color: var(--navy);
+  background: rgba(245, 192, 32, 0.15);
+  border-color: rgba(245, 192, 32, 0.3);
 }
 
 .month {
-  display: block;
   font-size: 9px;
   font-weight: 700;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  opacity: 0.75;
-}
-
-.day {
-  display: block;
-  font-size: 19px;
-  font-weight: 900;
+  color: rgba(255, 255, 255, 0.45);
   line-height: 1;
 }
 
+.dateBlockGold .month {
+  color: rgba(245, 192, 32, 0.8);
+}
+
+.day {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+}
+
+.dateBlockGold .day {
+  color: var(--gold, #f5c020);
+}
+
+/* ── Info ── */
 .info {
   flex: 1;
+  min-width: 0;
 }
 
 .name {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 2px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
 }
 
 .location {
-  font-size: 12px;
-  color: var(--text-muted);
+  font-size: 0.775rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+/* ── Badges ── */
 .badge {
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.07em;
+  font-size: 0.6rem;
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 2px 7px;
-  border-radius: 4px;
-  margin-left: 6px;
-  vertical-align: middle;
+  padding: 2px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .badgePast {
-  background: var(--navy-light);
-  color: rgba(10, 34, 64, 0.5);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .badgeNext {
-  background: var(--gold);
-  color: var(--navy);
+  background: rgba(245, 192, 32, 0.18);
+  color: var(--gold, #f5c020);
+  border: 1px solid rgba(245, 192, 32, 0.35);
 }
 
 .badgeUpcoming {
-  background: rgba(245, 192, 32, 0.2);
-  color: #854f0b;
+  background: rgba(28, 124, 156, 0.15);
+  color: #6dd4f0;
+  border: 1px solid rgba(28, 124, 156, 0.3);
 }
 
 .badgeChamp {
-  background: var(--navy);
-  color: var(--gold);
+  background: rgba(245, 192, 32, 0.22);
+  color: var(--gold, #f5c020);
+  border: 1px solid rgba(245, 192, 32, 0.4);
 }
