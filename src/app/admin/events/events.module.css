@@ -1,0 +1,317 @@
+/* src/app/admin/events/events.module.css */
+
+.page {
+  min-height: 100vh;
+  background: var(--navy, #0a2240);
+  padding: 3rem 1.5rem 5rem;
+}
+
+/* ── Header ── */
+.header {
+  max-width: 860px;
+  margin: 0 auto 2.5rem;
+}
+
+.headerEyebrow {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal, #1c7c9c);
+  margin-bottom: 0.5rem;
+}
+
+.heading {
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  margin: 0 0 0.6rem;
+}
+
+.subheading {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+/* ── Layout: form left, list right ── */
+.layout {
+  max-width: 860px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 680px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Form card ── */
+.formCard {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 3px solid var(--gold, #f5c020);
+  border-radius: 6px;
+  padding: 1.75rem 1.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 400px) {
+  .twoCol {
+    grid-template-columns: 1fr;
+  }
+}
+
+.label {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.input,
+.textarea,
+.select {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.95rem;
+  padding: 0.6rem 0.75rem;
+  font-family: inherit;
+  transition: border-color 0.15s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--gold, #f5c020);
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* date input calendar icon color fix */
+.input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.7);
+  cursor: pointer;
+}
+
+.select option {
+  background: #0a2240;
+  color: #fff;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.errorBanner {
+  background: rgba(220, 53, 69, 0.15);
+  border: 1px solid rgba(220, 53, 69, 0.4);
+  border-radius: 4px;
+  color: #ff8a94;
+  font-size: 0.875rem;
+  padding: 0.6rem 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.successBanner {
+  background: rgba(28, 124, 156, 0.15);
+  border: 1px solid rgba(28, 124, 156, 0.4);
+  border-radius: 4px;
+  color: #6dd4f0;
+  font-size: 0.875rem;
+  padding: 0.6rem 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.saveBtn {
+  width: 100%;
+  background: var(--gold, #f5c020);
+  color: #0a2240;
+  font-family: "Oswald", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+}
+
+.saveBtn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.saveBtn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.saveBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Event list ── */
+.listSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.listHeading {
+  font-family: "Oswald", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 1rem;
+}
+
+.emptyState {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.9rem;
+  font-style: italic;
+  padding: 1rem 0;
+}
+
+.eventList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.eventItem {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 5px;
+  padding: 1rem 1.1rem;
+  position: relative;
+}
+
+.eventMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.categoryBadge {
+  font-size: 0.72rem;
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  background: rgba(245, 192, 32, 0.12);
+  color: var(--gold, #f5c020);
+  border: 1px solid rgba(245, 192, 32, 0.25);
+}
+
+/* Category-specific accent colors */
+.categoryBadge[data-category="meet"] {
+  background: rgba(28, 124, 156, 0.15);
+  color: #6dd4f0;
+  border-color: rgba(28, 124, 156, 0.3);
+}
+
+.categoryBadge[data-category="payment"] {
+  background: rgba(80, 200, 120, 0.12);
+  color: #7ee8a2;
+  border-color: rgba(80, 200, 120, 0.25);
+}
+
+.categoryBadge[data-category="ceremony"] {
+  background: rgba(245, 192, 32, 0.12);
+  color: var(--gold, #f5c020);
+  border-color: rgba(245, 192, 32, 0.25);
+}
+
+.categoryBadge[data-category="party"] {
+  background: rgba(200, 100, 200, 0.12);
+  color: #dba0db;
+  border-color: rgba(200, 100, 200, 0.25);
+}
+
+.categoryBadge[data-category="admin"] {
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.55);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.eventDate {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.eventTitle {
+  font-family: "Oswald", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.3rem;
+}
+
+.eventDescription {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.45;
+  margin-bottom: 0.75rem;
+}
+
+.deleteBtn {
+  background: none;
+  border: 1px solid rgba(255, 100, 100, 0.3);
+  border-radius: 3px;
+  color: rgba(255, 120, 120, 0.7);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.deleteBtn:hover:not(:disabled) {
+  background: rgba(255, 100, 100, 0.1);
+  color: #ff8a8a;
+}
+
+.deleteBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

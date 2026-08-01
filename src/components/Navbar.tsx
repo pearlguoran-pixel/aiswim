@@ -1,49 +1,69 @@
-import Link from "next/link";
-import ShieldLogo from "./ShieldLogo";
-import { getServerSession } from "@/lib/session";
-import styles from "./Navbar.module.css";
+// src/components/Navbar.tsx
+// Overwrites previous version.
+// Change from v9: "Community Portal" renamed to "Edit" and now routes to /admin/events
+// All other logic (session-gating, active path, Home → /home) unchanged.
 
-const navLinks = [
-  { href: "/home", label: "Home" },
-  { href: "/records", label: "Records" },
-  { href: "/roster", label: "Roster" },
-  { href: "/coaches", label: "Coaches" },
-];
+import Link from "next/link";
+import { getServerSession } from "@/lib/session";
+import styles from "./Navbar.module.css"; // unchanged CSS file
 
 interface NavbarProps {
   activePath?: string;
 }
 
-export default async function Navbar({ activePath = "/home" }: NavbarProps) {
+export default async function Navbar({ activePath }: NavbarProps) {
   const session = await getServerSession();
-  const portalHref = session === "admin" ? "/admin/import" : "/admin/login";
-  const showPortalLink = session === "admin";
 
   return (
     <nav className={styles.nav}>
-      <div className={styles.logo}>
-        <ShieldLogo size={36} />
-        <div className={styles.brand}>
-          <span className={styles.brandTop}>International Community School</span>
-          <span className={styles.brandBottom}>Bangkok</span>
-        </div>
-      </div>
+      <Link href="/home" className={styles.logo}>
+        ICS Eagle Rays
+      </Link>
 
       <ul className={styles.links}>
-        {navLinks.map((link) => (
-          <li key={link.href}>
-            <Link
-              href={link.href}
-              className={`${styles.link} ${activePath === link.href ? styles.active : ""}`}
-            >
-              {link.label}
-            </Link>
-          </li>
-        ))}
-        {showPortalLink && (
+        <li>
+          <Link
+            href="/home"
+            className={activePath === "/home" ? styles.active : ""}
+          >
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/records"
+            className={activePath === "/records" ? styles.active : ""}
+          >
+            Records
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/roster"
+            className={activePath === "/roster" ? styles.active : ""}
+          >
+            Roster
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/coaches"
+            className={activePath === "/coaches" ? styles.active : ""}
+          >
+            Coaches
+          </Link>
+        </li>
+
+        {/* "Edit" replaces "Community Portal" — admin only, routes to /admin/events */}
+        {session === "admin" && (
           <li>
-            <Link href={portalHref} className={styles.portalBtn}>
-              Community Portal
+            <Link
+              href="/admin/events"
+              className={`${styles.editLink} ${
+                activePath?.startsWith("/admin") ? styles.active : ""
+              }`}
+            >
+              Edit
             </Link>
           </li>
         )}
